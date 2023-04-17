@@ -1,28 +1,40 @@
-async function getUsers() {
-    let url = 'https://swapi.dev/api/people/1';
+// //URL
+// const sw = 'https://swapi.dev/api/';
+
+// //GET PEOPLE
+// async function getPeople() {
+//     const person = sw + 'people/1/'
+//     try {
+//         let res = await fetch(person);
+//         return await res.json();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// async function renderPeople() {
+//     let people = await getPeople();
+//     console.log(people)
+
+//     let container = document.querySelector('.container');
+//     container.innerHTML = people.name;
+// }
+
+// renderPeople();
+
+// JavaScript code
+async function processInput() {
+    var inputData = document.getElementById("input-data").value;
+    console.log("User entered: " + inputData);
+
+    let url = "https://swapi.dev/api/people/?search=" + inputData;
+
     try {
         let res = await fetch(url);
-        return await res.json();
+        let data = await res.json();
+        console.log(data)
     } catch (error) {
         console.log(error);
     }
-}
-
-async function renderUsers() {
-    let users = await getUsers();
-    let html = '';
-    users.forEach(user => {
-        let htmlSegment = `<div class="user">
-                            <img src="${user.profileURL}" >
-                            <h2>${user.firstName} ${user.lastName}</h2>
-                            <div class="email"><a href="email:${user.email}">${user.email}</a></div>
-                        </div>`;
-
-        html += htmlSegment;
-    });
-
-    let container = document.querySelector('.container');
-    container.innerHTML = html;
-}
-
-renderUsers();
+  }
+  
