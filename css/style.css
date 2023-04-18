@@ -1,6 +1,14 @@
+/*
+
+#FEE01E - yellow
+#3EBFAC - teal
+#211650 - dark blue
+#CF0A2C - red
+#F3DAB1 - tan
+
+*/
+
 body {
-    background-color: #000;
-    color: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -12,7 +20,6 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid white;
     padding: 1em;
 }
 
@@ -27,7 +34,7 @@ h1 {
 }
 nav {
     padding: 0.5em;
-    border: 1px solid white;
+    border: 2px solid #211650;
 }
 
 nav ul {
@@ -44,4 +51,12 @@ nav li {
 main {
     display: flex;
     flex-grow: 1;
+}
+
+.searchlink {
+    display: block;
+}
+
+.hidden {
+    display: hidden;
 }

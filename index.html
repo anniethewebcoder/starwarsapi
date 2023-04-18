@@ -8,59 +8,60 @@
 </head>
 <body>
     <header>
-        <img src="img/logo.png" width="200" />
+        <img src="img/Star_Wars_Logo..png" width="200" />
         <h1>Annie Kwon's Star Wars Search Web</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Planets</a></li>
-            <li><a href="#">Films</li>
-            <li><a href="#">Species</a></li>
-            <li><a href="#">Vehicles</a></li>
-            <li><a href="#">Starships</a></li>
+            <li id="navpeople" class="navlink"><a href="#">People</a></li>
+            <li id="navplanets" class="navlink"><a href="#">Planets</a></li>
+            <li id="navfilms" class="navlink"><a href="#">Films</li>
+            <li id="navspecies" class="navlink"><a href="#">Species</a></li>
+            <li id="navvehicles" class="navlink"><a href="#">Vehicles</a></li>
+            <li id="navstarships" class="navlink"><a href="#">Starships</a></li>
         </ul>
     </nav>
     <main>
-        <section></section>
-    <form id="swpeople">
-        <label for="input-people">Enter People:</label>
-        <input type="text" id="input-people">
-        <button type="button" onclick="getPeople()">Submit</button>
-    </form>
+        <section id="swsearch">
+            <form id="swpeople" class="searchlink">
+                <label for="input-people">Enter People:</label>
+                <input type="text" id="input-people">
+                <button type="button" onclick="getPeople()">Submit</button>
+            </form>
+        
+            <form id="swplanets" class="searchlink">
+                <label for="input-planets">Enter Planets:</label>
+                <input type="text" id="input-planets">
+                <button type="button" onclick="getPlanets()">Submit</button>
+            </form>
+        
+            <form id="swfilms" class="searchlink">
+                <label for="input-films">Enter Films:</label>
+                <input type="text" id="input-films">
+                <button type="button" onclick="getFilms()">Submit</button>
+            </form>
+        
+            <form id="swspecies" class="searchlink">
+                <label for="input-species">Enter Species:</label>
+                <input type="text" id="input-species">
+                <button type="button" onclick="getSpecies()">Submit</button>
+            </form>
+        
+            <form id="swvehicles" class="searchlink">
+                <label for="input-vehicles">Enter Vehicles:</label>
+                <input type="text" id="input-vehicles">
+                <button type="button" onclick="getVehicles()">Submit</button>
+            </form>
+        
+            <form id="swstarships" class="searchlink">
+                <label for="input-starships">Enter Starships:</label>
+                <input type="text" id="input-starships">
+                <button type="button" onclick="getStarships()">Submit</button>
+            </form>
+        </section>
+        <section id="swresult">
 
-    <form id="swplanets">
-        <label for="input-planets">Enter Planets:</label>
-        <input type="text" id="input-planets">
-        <button type="button" onclick="getPlanets()">Submit</button>
-    </form>
-
-    <form id="swfilms">
-        <label for="input-films">Enter Films:</label>
-        <input type="text" id="input-films">
-        <button type="button" onclick="getFilms()">Submit</button>
-    </form>
-
-    <form id="swspecies">
-        <label for="input-species">Enter Species:</label>
-        <input type="text" id="input-species">
-        <button type="button" onclick="getSpecies()">Submit</button>
-    </form>
-
-    <form id="swvehicles">
-        <label for="input-vehicles">Enter Vehicles:</label>
-        <input type="text" id="input-vehicles">
-        <button type="button" onclick="getVehicles()">Submit</button>
-    </form>
-
-    <form id="swstarships">
-        <label for="input-starships">Enter Starships:</label>
-        <input type="text" id="input-starships">
-        <button type="button" onclick="getStarships()">Submit</button>
-    </form>
-      
-
-    <div class="container"></div>
+        </section>
     </main>
     <footer>
         &copy; 2023 Annie Kwon
