@@ -8,40 +8,52 @@
 </head>
 <body>
     <header>
-        <h1>Annie Kwon's Star Wars Search Web</h1>
         <img src="img/logo.png" width="200" />
+        <h1>Annie Kwon's Star Wars Search Web</h1>
     </header>
-    <form>
+    <nav>
+        <ul>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Planets</a></li>
+            <li><a href="#">Films</li>
+            <li><a href="#">Species</a></li>
+            <li><a href="#">Vehicles</a></li>
+            <li><a href="#">Starships</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section></section>
+    <form id="swpeople">
         <label for="input-people">Enter People:</label>
         <input type="text" id="input-people">
         <button type="button" onclick="getPeople()">Submit</button>
     </form>
 
-    <form>
+    <form id="swplanets">
         <label for="input-planets">Enter Planets:</label>
         <input type="text" id="input-planets">
         <button type="button" onclick="getPlanets()">Submit</button>
     </form>
 
-    <form>
+    <form id="swfilms">
         <label for="input-films">Enter Films:</label>
         <input type="text" id="input-films">
         <button type="button" onclick="getFilms()">Submit</button>
     </form>
 
-    <form>
+    <form id="swspecies">
         <label for="input-species">Enter Species:</label>
         <input type="text" id="input-species">
         <button type="button" onclick="getSpecies()">Submit</button>
     </form>
 
-    <form>
+    <form id="swvehicles">
         <label for="input-vehicles">Enter Vehicles:</label>
         <input type="text" id="input-vehicles">
         <button type="button" onclick="getVehicles()">Submit</button>
     </form>
 
-    <form>
+    <form id="swstarships">
         <label for="input-starships">Enter Starships:</label>
         <input type="text" id="input-starships">
         <button type="button" onclick="getStarships()">Submit</button>
@@ -49,7 +61,10 @@
       
 
     <div class="container"></div>
-    <footer></footer>
+    </main>
+    <footer>
+        &copy; 2023 Annie Kwon
+    </footer>
     <script src="js/app.js"></script>
 </body>
 </html>
