@@ -10,14 +10,10 @@ async function getPeople() {
     const url = rootapi + "/people/?search=" + peopleInput;
 
     try {
-        let res = await fetch(url);
-        let data = await res.json();
-
-        console.log(data);
+        const res = await fetch(url);
+        const data = await res.json();
 
         const results = data.results; 
-
-        console.log(results)
         
         let html = "";
 
