@@ -60,5 +60,33 @@ async function renderPeople() {
 //DESCRIBE getPerson() FUNCTION
 async function getPerson(val) {
     const getUrl = val
-    console.log(getUrl)
+    
+    let html = "";
+
+    try {
+        const res = await fetch(getUrl);
+        const data = await res.json();
+
+        let html = `<h4>Name: ${data.name}</h4>
+            <ul>
+                <li>Height: ${data.height}</li>
+                <li>Mass: ${data.mass}</li>
+                <li>Hair Color: ${data.hair_color}</li>
+                <li>Skin Color: ${data.eye_color}</li>
+                <li>Birth Year: ${data.birth_year}</li>
+                <li>Gender: ${data.gender}</li>
+                <li>Home World: ${data.homeworld}</li>
+                <li>Films : ${data.films}</li>
+                <li>Species: ${data.vehicles}</li>
+                <li>Starships: ${data.starships}</li>
+            
+            </ul>`;
+        
+        let container = document.querySelector('#peopleresult');
+        container.innerHTML = html;
+    } catch (error) {
+        console.log(error);
+    }
+
+    
 }
