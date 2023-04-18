@@ -67,6 +67,30 @@ async function getPerson(val) {
         const res = await fetch(getUrl);
         const data = await res.json();
 
+        if(data.films.length > 1) {
+            data.films.forEach(link => {
+                getFilm(link)
+            })
+        }
+
+        // if(data.vehicles.length > 1) {
+        //     data.vehicles.forEach(link => {
+        //         getVehicle(link)
+        //     })
+        // }
+
+        // if(data.vehicles.length > 1) {
+        //     data.vehicles.forEach(link => {
+        //         getStarship(link)
+        //     } )
+        // }
+
+        // if(data.species.length > 1) {
+        //     data.species.forEach(link => {
+        //         getSpec(link)
+        //     })
+        // }
+
         let html = `<h4>Name: ${data.name}</h4>
             <ul>
                 <li>Height: ${data.height}</li>
@@ -76,8 +100,9 @@ async function getPerson(val) {
                 <li>Birth Year: ${data.birth_year}</li>
                 <li>Gender: ${data.gender}</li>
                 <li>Home World: ${data.homeworld}</li>
-                <li>Films : ${data.films}</li>
-                <li>Species: ${data.vehicles}</li>
+                <li>Films : <p class="filmlink"></p></li>
+                <li>Species: ${data.species}</li>
+                <li>Vehicles: ${data.vehicles}</li>
                 <li>Starships: ${data.starships}</li>
             
             </ul>`;
@@ -86,7 +111,48 @@ async function getPerson(val) {
         container.innerHTML = html;
     } catch (error) {
         console.log(error);
-    }
+    }   
+}
 
-    
+async function getFilm(url) {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const title = data.title
+        
+        let container = document.querySelector('.filmlink')
+        container.append(title)
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function getVehicle(url){
+    try {
+        const res = await fetch(url);
+        const data = res.json();
+        console.log(data.name)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function getSpec(url){
+    try {
+        const res = await fetch(url);
+        const data = res.json();
+        console.log(data.name)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function getStarship(url){
+    try {
+        const res = await fetch(url);
+        const data = res.json();
+        console.log(data.name)
+    } catch (err) {
+        console.log(err)
+    }
 }
