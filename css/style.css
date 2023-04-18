@@ -7,7 +7,6 @@
 #F3DAB1 - tan
 
 */
-
 body {
     display: flex;
     flex-direction: column;
@@ -21,7 +20,7 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1em;
+    padding: 2em;
     background-color: #211650;
     color: #FEE01E;
 }
@@ -52,6 +51,10 @@ nav li {
 }
 
 main {
+    display: flex;
+    flex-grow: 1;
+}
+#swsearch {
     display: flex;
     flex-grow: 1;
 }

@@ -20,6 +20,7 @@ async function getPeople() {
         results.forEach(result => {
             let htmlSegment = `<div class="result"
                 <h2>${result.name}</h2>
+                <a href="${result.url}">Click here</a>
                 </div>`;
 
             html += htmlSegment;
