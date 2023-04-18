@@ -51,11 +51,22 @@ nav li {
 }
 
 main {
-    display: flex;
     flex-grow: 1;
 }
-#swsearch {
+
+#peopleresult {
+    list-style-type: none;
+}
+
+.result-item {
     display: flex;
+}
+
+.result-image {
+    flex-shrink: 0;
+}
+
+.result-entry {
     flex-grow: 1;
 }
 

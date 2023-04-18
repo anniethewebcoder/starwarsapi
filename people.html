@@ -16,25 +16,27 @@
     </header>
     <nav>
         <ul>
-            <li id="navpeople" class="navlink"><a href="#">People</a></li>
-            <li id="navplanets" class="navlink"><a href="#">Planets</a></li>
-            <li id="navfilms" class="navlink"><a href="#">Films</li>
-            <li id="navspecies" class="navlink"><a href="#">Species</a></li>
-            <li id="navvehicles" class="navlink"><a href="#">Vehicles</a></li>
-            <li id="navstarships" class="navlink"><a href="#">Starships</a></li>
+            <li id="navpeople" class="navlink"><a href="people.html">People</a></li>
+            <li id="navplanets" class="navlink"><a href="planets.html">Planets</a></li>
+            <li id="navfilms" class="navlink"><a href="films.html">Films</li>
+            <li id="navspecies" class="navlink"><a href="species.html">Species</a></li>
+            <li id="navvehicles" class="navlink"><a href="vehicles.html">Vehicles</a></li>
+            <li id="navstarships" class="navlink"><a href="starships.html">Starships</a></li>
         </ul>
     </nav>
     <main>
         <section id="swsearch">
-            <form id="swpeople" class="searchlink">
+            <form id="swpeople" class="searchlink" method="get">
                 <label for="input-people">Enter People:</label>
                 <input type="text" id="input-people">
-                <button type="button" onclick="getPeople()">Submit</button>
+                <button type="button" onclick="renderPeople()">Submit</button>
             </form>
         </section>
-        <section id="swresult">
 
-        </section>
+        <ul id="peopleresult">
+        
+        </ul>
+
     </main>
     <footer>
         &copy; 2023 Annie Kwon

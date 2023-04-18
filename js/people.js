@@ -45,20 +45,19 @@ async function renderPeople() {
                 </div>
                 <div class="result-entry">
                     <h4>${result.name}</h4>
-                    <p><button onclick="getPerson(this.value)" value="${result.url}">Click here for details</button></p>
+                    <p><button class="personlink" value="${result.url}">Click here for details</button></p>
                 </div>
             </li>
             `
 
         html += htmlSegment;
+
+        console.log(result.url)
+        
     })
 
     let container = document.querySelector('#peopleresult');
     container.innerHTML = html;
 }
 
-//DESCRIBE getPerson() FUNCTION
-async function getPerson(val) {
-    const getUrl = val
-    console.log(getUrl)
-}
+//DESCRIBE getFilms() FUNCTION
