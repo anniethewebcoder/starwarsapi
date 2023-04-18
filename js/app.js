@@ -22,9 +22,25 @@
 
 // renderPeople();
 
-// JavaScript code
-async function processInput() {
-    var inputData = document.getElementById("input-data").value;
+//ROOT API
+const rootapi = "https://swapi.dev/api/";
+
+//DESCRIBE getPeople() FUNCTION
+async function getPeople() {
+    //get query from index.html
+    const peopleInput = document.getElementById("input-people").value;
+
+    const url = rootapi + "/people/?search=" + peopleInput;
+
+    try {
+        let response = await fetch(url);
+        let data = await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+async function getPeople() {
+    var inputData = document.getElementById("input-people").value;
     console.log("User entered: " + inputData);
 
     let url = "https://swapi.dev/api/people/?search=" + inputData;
@@ -32,6 +48,9 @@ async function processInput() {
     try {
         let res = await fetch(url);
         let data = await res.json();
+
+        let container = document.querySelector('.container');
+        container.innerHTML = data.count + data.results[0].name;
         console.log(data)
     } catch (error) {
         console.log(error);
