@@ -1,5 +1,5 @@
 /*
-
+COLOR THEME
 #FEE01E - yellow
 #3EBFAC - teal
 #211650 - dark blue
@@ -48,6 +48,17 @@ nav ul {
 
 nav li {
     padding-right: 1.5em;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 1.5em;
+    color: #211650;
+}
+
+nav a:hover {
+    background-color: #3EBFAC;
+    color: #FEE01E;
 }
 
 main {
