@@ -14,6 +14,8 @@ body {
     font-family: 'Special Elite', cursive;
     max-width: 50em;
     min-height: 100vh;
+    background-color: #000;
+    background-image: url("../img/bg.png");
 }
 
 header {
