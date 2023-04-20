@@ -3,9 +3,8 @@
 const rootAPI = "https://swapi.dev/api/";
 
 //DEFINE getAPI FUNCTION
-async function getAPI() {
+async function getAPI(url) {
 
-    let url = rootAPI + "people/1"
     fetch(url).then(res => {
         if(res.status === 200) {
             let x = document.getElementById("loader");
@@ -27,16 +26,16 @@ function getSearch(category) {
 
     let section = document.querySelector(".search-box");
     section.innerHTML = swsearch
-
-    //WHEN SOMEONE HITS ENTER IN SEARCH BOX
+    
     const input = document.getElementById("swInput");
-    const swValue = input.value;
-
-    const url = rootAPI + category.toLowerCase() + "/?search=" + swValue;
-
     input.addEventListener('keydown', event => {
         if(event.key === "Enter") {
             event.preventDefault();
+
+            //WHEN SOMEONE HITS ENTER IN SEARCH BOX
+            let swValue = input.value;
+            let url = rootAPI + category.toLowerCase() + "/?search=" + swValue;
+
             let x = document.getElementById("loader");
             x.style.visibility = "visible";
             getAPI(url);
