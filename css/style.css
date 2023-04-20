@@ -129,9 +129,17 @@ a:hover {
 
 .search-box {
     padding: 2rem;
+    width: 75%;
 }
 
-input[type=text] {
+
+#swInput {
+    background-image: url("../img/search.png");
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-origin: content-box;
+    padding-right: 20px;
     font-family: "Special Elite", cursive;
     width: 50%;
     padding: 12px 20px;
@@ -140,9 +148,10 @@ input[type=text] {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    width: 100%;
   }
 
-input[type=text]:focus {
+#swInput:focus {
     background-color: #F3DAB1;
     border: 3px solid #FEE01E;
   }
