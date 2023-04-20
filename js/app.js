@@ -22,34 +22,30 @@ async function getAPI() {
 //DEFINE getSearch FUNCTION
 function getSearch(category) {
 
-    let swsearch = `<form>
-        <label for="swInput">Search ${category}: </label>
-        <input type="text" id="swInput">
-        <button type="button" onclick="getAPI()">Search</button>
-        </form>
-    `
-    let section = document.getElementById("swSearch");
+    let swsearch = `<label for="swInput" class="search-label">Search ${category}</label>
+        <input type="text" id="swInput">`
+
+    let section = document.querySelector(".search-box");
     section.innerHTML = swsearch
+
+    //WHEN SOMEONE HITS ENTER IN SEARCH BOX
+    const input = document.getElementById("swInput");
+    const swValue = input.value;
+
+    const url = rootAPI + category.toLowerCase() + "/?search=" + swValue;
+
+    input.addEventListener('keydown', event => {
+        if(event.key === "Enter") {
+            event.preventDefault();
+            let x = document.getElementById("loader");
+            x.style.visibility = "visible";
+            getAPI(url);
+        }
+    })
 }
 
 function getSearchValue() {
 
 }
-    // fetch(apiURL).then(response => {
-    //     console.log(response.status); 
-    // }).catch(error => {
-    //     console.error(error);
-    // });
 
-        //WHEN SOMEONE HITS ENTER IN SEARCH BOX
-        // const input = document.getElementById("swInput");
-        // const swValue = input.value;
-    
-        // const url = rootAPI + category.toLowerCase() + "/?search=" + swValue;
-    
-        // input.addEventListener('keydown', event => {
-        //     if(event.key === "Enter") {
-        //         event.preventDefault();
-        //         getAPI(url);
-        //     }
-        // })
+

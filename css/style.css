@@ -130,6 +130,7 @@ a:hover {
 .search-box {
     padding: 2rem;
     width: 75%;
+    font-size: 1.25rem;
 }
 
 
@@ -156,11 +157,6 @@ a:hover {
     border: 3px solid #FEE01E;
   }
 
-.searchbox p {
-    margin: .5rem 0 1.5rem;
-    font-size: 1.25rem;
-}
-
 #swResult {
     display: flex;
     flex-direction: row;
@@ -180,6 +176,7 @@ a:hover {
     height: 120px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+    visibility: hidden;
   }
   
   @-webkit-keyframes spin {
