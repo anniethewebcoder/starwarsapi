@@ -6,6 +6,7 @@ const loader = document.getElementById("loader");
 const intro = document.getElementById("intro");
 const result = document.getElementById("swResult");
 
+const zeroResult = "These aren't the droids you're looking for."
 //DEFINE getAPI FUNCTION
 async function getAPI(url, category) {
     let html = ""
@@ -75,29 +76,36 @@ function getSearch(category) {
 }
 
 function getPeople(data) {
-    console.log("People")
-    console.log(data.count)
-    console.log(data.results.name)
 
-    let html = ""
+    let html = "";
 
     if(data.count === 0) {
-        html = "These aren't the droids you're looking for.";
+        html = zeroResult;
+    }
+
+    if(data.next !== null) {
+        console.log(data.next)
+    }
+
+    if(data.previous !== null) {
+        console.log(data.previous)
     }
 
 
     data.results.forEach(item => {
-        let htmlSegment = `
-            <li class="result-item">
-                <div class="result-image">
-                    <img src="img/profile.png" width="100">
-                </div>
-                <div class="result-entry">
-                    <h4>${item.name}</h4>
-                    <p><button class="personlink" value="${item.url}">Click here for details</button></p>
-                </div>
-            </li>
-            `
+        let htmlSegment = `<div class="result-item">
+            <div class="result-image">
+                <img src="img/profile.png" width="80">
+            </div>
+            <div class="result-entry">
+                <h3>${item.name}</h3>
+                <ul>
+                    <li>Gender: ${item.gender}</li>
+                    <li>Birth Year: ${item.birth_year}</li>
+                    <li>Home World: ${item.homeworld}</li>
+                </ul>
+            </div>
+        </div>`
 
         html += htmlSegment;
     })
