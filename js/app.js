@@ -3,14 +3,31 @@
 const rootAPI = "https://swapi.dev/api/";
 
 //DEFINE getAPI FUNCTION
-async function getAPI(url) {
+async function getAPI(url, category) {
+    let loader = document.getElementById("loader");
+    let intro = document.getElementById("intro");
+    let result = document.getElementById("swResult");
+
+    let html = ""
 
     fetch(url).then(res => {
+        
+        loader.style.visibility = "hidden";
+        intro.style.display = "none";
+        
         if(res.status === 200) {
-            let x = document.getElementById("loader");
-            x.style.visibility = "hidden";
+            
+            const data = res.json().then(data => {
+                getPeople(data)
+            });
+            let htmlSegment = ""
+            
+            result.innerHTML = "Success! 200!"
+ 
+        } else {
+            result.innerHTML = "<p>Can't get any result.</p>"
         }
-        console.log(res.json());
+        
     }).catch(err => {
         console.log(err)
     })
@@ -38,13 +55,39 @@ function getSearch(category) {
 
             let x = document.getElementById("loader");
             x.style.visibility = "visible";
-            getAPI(url);
+            getAPI(url, category);
         }
     })
 }
 
-function getSearchValue() {
+function getPeople(data) {
+    console.log("People")
+    console.log(data)
+}
 
+function getPlanets(data) {
+    console.log("Planets")
+    console.log(data)
+}
+
+function getFilms(data) {
+    console.log("Films")
+    console.log(data)
+}
+
+function getSpecies(data) {
+    console.log("Species")
+    console.log(data)
+}
+
+function getStarships(data) {
+    console.log("Starships")
+    console.log(data)
+}
+
+function getVehicles(data) {
+    console.log("Vehicles")
+    console.log(data)
 }
 
 
