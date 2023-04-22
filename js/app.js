@@ -11,45 +11,38 @@ const zeroResult = "These aren't the droids you're looking for."
 async function getAPI(url, category) {
     let html = ""
 
-    fetch(url).then(res => {
-        
-        loader.style.visibility = "hidden";
-        intro.style.display = "none";
-        
-        if(res.status === 200) {
+    let res = await fetch(url)
+
+    loader.style.visibility = "hidden";
+    intro.style.display = "none";
+
+    if(res.status === 200) {
             
-            const data = res.json().then(data => {
-                switch(category) {
-                    case "People": getPeople(data);
-                    break;
-                    case "Planets": getPlanets(data);
-                    break;
-                    case "Films": getFilms(data);
-                    break;
-                    case "Species": getSpecies(data);
-                    break;
-                    case "Starships": getStarships(data);
-                    break;
-                    case "Vehicles": getVehicles(data);
-                    break;
-                    default: console.log("Category Uh oh!");
-                    break;
-                }
-            });
-            let htmlSegment = ""
-            
-            result.innerHTML = "Success! 200!"
- 
-        } else {
-            result.innerHTML = "<p>Can't get any result.</p>"
+        const data = await res.json()
+        
+        switch(category) {
+            case "People": await getPeople(data);
+            break;
+            case "Planets": getPlanets(data);
+            break;
+            case "Films": getFilms(data);
+            break;
+            case "Species": getSpecies(data);
+            break;
+            case "Starships": getStarships(data);
+            break;
+            case "Vehicles": getVehicles(data);
+            break;
+            default: console.log("Category Uh oh!");
+            break;
         }
         
-    }).catch(err => {
-        console.log(err)
-    })
-}
+        // result.innerHTML = "Success! 200!"
 
-//getAPI(rootAPI + "films")
+    } else {
+        result.innerHTML = "<p>Can't get any result.</p>"
+    }
+}
 
 //DEFINE getSearch FUNCTION
 function getSearch(category) {
@@ -75,12 +68,14 @@ function getSearch(category) {
     })
 }
 
-function getPeople(data) {
-
+async function getPeople(data) {
+    
     let html = "";
 
     if(data.count === 0) {
         html = zeroResult;
+    } else {
+        html = `<div class="result-count"><h1>Never tell me the odds. You got ${data.count} results.</h1></div>`
     }
 
     if(data.next !== null) {
@@ -91,8 +86,12 @@ function getPeople(data) {
         console.log(data.previous)
     }
 
+    for(const item of data.results) {
+        let hwName = await getHomeworld(item.homeworld);
+        let personID = item.url.split('/')
+        personID = personID[personID.length - 2]
 
-    data.results.forEach(item => {
+
         let htmlSegment = `<div class="result-item">
             <div class="result-image">
                 <img src="img/profile.png" width="80">
@@ -102,28 +101,36 @@ function getPeople(data) {
                 <ul>
                     <li>Gender: ${item.gender}</li>
                     <li>Birth Year: ${item.birth_year}</li>
-                    <li>Home World: ${item.homeworld}</li>
+                    <li class="hw">Home World: ${hwName}</li>
+                    <li><a href="./person.html?personID=${personID}" value="${item.url}" class="btn">Click here for details</a></li>
                 </ul>
             </div>
-        </div>`
+        </div>`;
 
-        html += htmlSegment;
-    })
+        html += htmlSegment
+    }
 
     result.innerHTML = html;
 
 }
 
+async function getPersonDetail(url) {
+
+}
+
 function getPlanets(data) {
-    console.log("Planets")
-    console.log(data.count)
-    console.log(data.results.name)
+    let html = ""
+}
+
+async function getHomeworld(url) {
+    const res = await fetch(url)
+    const data = await res.json();
+    console.log(data.name)
+    return data.name
 }
 
 function getFilms(data) {
-    console.log("Films")
-    console.log(data.count)
-    console.log(data.results.name)
+
 }
 
 function getSpecies(data) {
