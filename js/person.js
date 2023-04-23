@@ -46,6 +46,7 @@ async function renderPerson() {
   document.querySelector('.homeWorld').innerHTML = homeWorld;
   
   const films = data.films;
+  console.log(films[0])
   document.querySelector('.films').innerHTML = films;
 
   const species = data.species;
