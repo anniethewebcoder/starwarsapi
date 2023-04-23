@@ -102,7 +102,7 @@ async function getPeople(data) {
                     <li>Gender: ${item.gender}</li>
                     <li>Birth Year: ${item.birth_year}</li>
                     <li class="hw">Home World: ${hwName}</li>
-                    <li><a href="./person.html?personID=${personID}" value="${item.url}" class="btn">Click here for details</a></li>
+                    <li><a href="./people.html?peopleID=${personID}" value="${item.url}" class="btn">Click here for details</a></li>
                 </ul>
             </div>
         </div>`;

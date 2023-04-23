@@ -1,63 +1,121 @@
-//ROOT API
-const rootapi = "https://swapi.dev/api/";
+async function getPerson() {
 
-const form = document.getElementById("swpeople");
-const input = document.getElementById("input-people")
+  //FORM URL
+  const currentURL = new URL(window.location.toString())
+  const personID = currentURL.searchParams.get('peopleID')
+  const getPersonURL = `https://swapi.dev/api/people/${personID}/`
 
-input.addEventListener('keydown', event => {
-    if(event.key === "Enter") {
-        event.preventDefault();
-        renderPeople();
-    }
-})
+  //GET DATA OF A PERSON
+  try {
+    const res = await fetch(getPersonURL);
+    const data = await res.json();
+    return data;
 
-//DESCRIBE getPeople() FUNCTION
-async function getPeople() {
-    //GET QUERY FROM index.html
-    const peopleInput = document.getElementById("input-people").value;
-
-    //URL FOR PEOPLE SEARCH
-    const url = rootapi + "/people/?search=" + peopleInput;
-
-    try {
-        const res = await fetch(url);
-        return await res.json();  
-    } catch (error) {
-        return error;
-    }
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-//DESCRIBE renderPeople() FUNCTION
-async function renderPeople() {
-    const results = await getPeople();
+async function renderPerson() {
+  
+  const data = await getPerson();
 
-    const countRes = results.count;
-        
-    let html = "";
+  // add name
+  const name = data.name
+  document.querySelector('.name').innerHTML = name;
 
-    const arrayResults = results.results
+  const height = data.height;
+  document.querySelector('.height').innerHTML = height + " cm";
 
-    arrayResults.forEach(result => {
-        let htmlSegment = `
-            <li class="result-item">
-                <div class="result-image">
-                    <img src="img/profile.png" width="100">
-                </div>
-                <div class="result-entry">
-                    <h4>${result.name}</h4>
-                    <p><button class="personlink" value="${result.url}">Click here for details</button></p>
-                </div>
-            </li>
-            `
+  const mass = data.mass
+  document.querySelector('.mass').innerHTML = mass + " km";
+  
+  const hairColor = data.hair_color;
+  document.querySelector('.hairColor').innerHTML = hairColor + " hair";
 
-        html += htmlSegment;
+  const skinColor = data.skin_color;
+  document.querySelector('.skinColor').innerHTML = skinColor + " skin";
 
-        console.log(result.url)
-        
-    })
+  const eyeColor = data.eye_color;
+  document.querySelector('.eyeColor').innerHTML = eyeColor + " eyes";
 
-    let container = document.querySelector('#peopleresult');
-    container.innerHTML = html;
+  const birthYear = data.birth_year;
+  document.querySelector('.birthYear').innerHTML = "Born in " + birthYear;
+
+  const homeWorld = data.homeworld;
+  document.querySelector('.homeWorld').innerHTML = homeWorld;
+  
+  const films = data.films;
+  let film_li = ""
+  for(const item of films) {
+    let title = await getTitle(item);
+    film_li += `<li>${title}</li>`
+  }
+  document.querySelector('.films').innerHTML = "Films: " + film_li;
+
+  const species = data.species;
+  let species_li = ""
+  for(const item of species) {
+    let name = await getName(item);
+    species_li += `<li>${name}</li>`
+  }
+  document.querySelector('.species').innerHTML = "Species: " + species_li;
+  
+  const vehicles = data.vehicles;
+  let vehicles_li = ""
+  for(const item of vehicles) {
+    let name = await getName(item);
+    vehicles_li += `<li>${name}</li>`
+  }
+  document.querySelector('.vehicles').innerHTML = "Vehicles: " + vehicles_li;
+
+  const starships = data.starships;
+  let starships_li = ""
+  for(const item of starships) {
+    let name = await getName(item);
+    starships_li += `<li>${name}</li>`
+  }
+  document.querySelector('.starships').innerHTML = "Starships: " + starships_li;
+
 }
 
-//DESCRIBE getFilms() FUNCTION
+async function getTitle(url) {
+  try {
+    const res = await fetch(url)
+    const data = await res.json();
+
+    let title = data.title;
+    let link = data.url;
+    let splitLink = link.split("/");
+    let id = splitLink[splitLink.length - 2]
+    let category = splitLink[splitLink.length - 3];
+    let newlink = `./${category}.html?${category}ID=${id}`
+
+    let li = `<a href="${newlink}">${id}: ${title}</a>`;
+    
+    return li;
+  } catch(err) {
+    console.log(err);
+  }
+
+}
+
+async function getName(url) {
+  try {
+    const res = await fetch(url)
+    const data = await res.json();
+
+    let name = data.name;
+    let link = data.url;
+    let splitLink = link.split("/");
+    let id = splitLink[splitLink.length - 2]
+    let category = splitLink[splitLink.length - 3];
+    let newlink = `./${category}.html?${category}ID=${id}`
+
+    let li = `<a href="${newlink}">${id}: ${name}</a>`;
+
+    return li;
+  } catch(err) {
+    console.log(err);
+  }
+}
