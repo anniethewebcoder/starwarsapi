@@ -5,51 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annie Kwon's Star Wars API</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/films.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>AK's Advanced Search of </h1>
-        <img src="img/Star_Wars_Logo..png" width="200" />
-    </header>
-    <nav>
-        <ul>
-            <li id="navpeople" class="navlink"><a href="people.html">People</a></li>
-            <li id="navplanets" class="navlink"><a href="planets.html">Planets</a></li>
-            <li id="navfilms" class="navlink"><a href="films.html">Films</a></li>
-            <li id="navspecies" class="navlink"><a href="species.html">Species</a></li>
-            <li id="navvehicles" class="navlink"><a href="vehicles.html">Vehicles</a></li>
-            <li id="navstarships" class="navlink"><a href="starships.html">Starships</a></li>
-        </ul>
-    </nav>
+<body onload="renderFilm()">
+    <div id="container">
+        <h1>Star Wars Film Detail</h1>
+        <header>
+            <div class="header-left">
+                <a href="index.html"><img src="img/logo.png" width="200" /></a>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="btn">Go Home</a></li>
+                    </ul>
+                </nav>
+            </div>      
+        </header>
     <main>
-        <section id="swsearch">
-            <form id="swfilms" class="searchlink">
-                <label for="input-films">Enter Films:</label>
-                <input type="text" id="input-films">
-                <button type="button" onclick="getFilms()">Submit</button>
-            </form>
-        </section>
         <section id="swresult">
             <div class="title"></div>
-            <div class="episode_id"></div>
-            <div class="opening_crawl"></div>
+            <div class="episodeID"></div>
+            <div class="openingCrawl"></div>
             <div class="director"></div>
             <div class="producer"></div>
-            <div class="release_date"></div>
-            <ul class="species"></ul>
-            <ul class="starships"></ul>
-            <ul class="vehicles"></ul>
-            <ul class="characters"></ul>
-            <ul class="planets"></ul>
+            <div class="releaseDate"></div>
+            <ul class="species"><div class="loader"></div></ul>
+            <ul class="starships"><div class="loader"></div></ul>
+            <ul class="vehicles"><div class="loader"></div></ul>
+            <ul class="characters"><div class="loader"></div></ul>
+            <ul class="planets"><div class="loader"></div></ul>
         </section>
     </main>
     <footer>
         &copy; 2023 Annie Kwon
     </footer>
-    <script src="js/app.js"></script>
+</div>
+    <script src="js/films.js"></script>
 </body>
 </html>
 

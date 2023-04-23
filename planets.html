@@ -5,26 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Annie Kwon's Star Wars API</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/planets.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-  <body onload="getPlanet()">
-    <main>
-
+  <body onload="renderPlanet()">
+    <div id="container">
+      <h1>Star Wars Character Profile</h1>
+      <header>
+          <div class="header-left">
+              <a href="index.html"><img src="img/logo.png" width="200" /></a>
+          </div>
+          <div class="header-right">
+              <nav>
+                  <ul>
+                      <li><a href="index.html" class="btn">Go Home</a></li>
+                  </ul>
+              </nav>
+          </div>      
+      </header>
+      <main>
         <div class="name"></div>
         <div class="diameter"></div>
-        <div class="rotation_period"></div>
-        <div class="orbital_period"></div>
+        <div class="rotationPeriod"></div>
+        <div class="orbitalPeriod"></div>
         <div class="gravity"></div>
         <div class="population"></div>
         <div class="climate"></div>
         <div class="terrain"></div>
-        <div class="surface_water"></div>
-        <div class="residents"></div>
-        <ul class="films"></ul>
+        <div class="surfaceWater"></div>
+        <ul class="residents"><div class="loader"></div></ul>
+        <ul class="films"><div class="loader"></div></ul>
     </main>
-
-    <script src="./js/planet.js"></script>
+    <footer>
+      <div class="footer-copyright">
+          Copyright 2023 Annie Kwon AK's Advanced Search of Star Wars
+      </div>
+    </footer>
+  </div>
+  <script src="./js/planet.js"></script>
   </body>
 </html
