@@ -25,25 +25,25 @@ async function renderPerson() {
   document.querySelector('.name').innerHTML = name;
 
   const height = data.height;
-  document.querySelector('.height').innerHTML = height + " cm";
+  document.querySelector('.height').innerHTML = "Height: " + height + " cm";
 
   const mass = data.mass
-  document.querySelector('.mass').innerHTML = mass + " km";
+  document.querySelector('.mass').innerHTML = "Mass: " + mass + " km";
   
   const hairColor = data.hair_color;
-  document.querySelector('.hairColor').innerHTML = hairColor + " hair";
+  document.querySelector('.hairColor').innerHTML = "Hair Color: " + hairColor;
 
   const skinColor = data.skin_color;
-  document.querySelector('.skinColor').innerHTML = skinColor + " skin";
+  document.querySelector('.skinColor').innerHTML = "Skin Color: " + skinColor;
 
   const eyeColor = data.eye_color;
-  document.querySelector('.eyeColor').innerHTML = eyeColor + " eyes";
+  document.querySelector('.eyeColor').innerHTML = "Eye Color: " + eyeColor;
 
   const birthYear = data.birth_year;
   document.querySelector('.birthYear').innerHTML = "Born in " + birthYear;
 
-  const homeWorld = data.homeworld;
-  document.querySelector('.homeWorld').innerHTML = homeWorld;
+  const homeWorld = await getName(data.homeworld);
+  document.querySelector('.homeWorld').innerHTML = "Home World: " + homeWorld;
   
   const films = data.films;
   let film_li = ""
