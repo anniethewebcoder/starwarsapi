@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="getSpecies()">
     <header>
         <h1>AK's Advanced Search of </h1>
         <img src="img/Star_Wars_Logo..png" width="200" />
@@ -25,20 +25,23 @@
         </ul>
     </nav>
     <main>
-        <section id="swsearch">     
-            <form id="swspecies" class="searchlink">
-                <label for="input-species">Enter Species:</label>
-                <input type="text" id="input-species">
-                <button type="button" onclick="getSpecies()">Submit</button>
-            </form>
-        </section>
-        <section id="swresult">
-
-        </section>
+        <div class="name"></div>
+        <div class="classification"></div>
+        <div class="designation"></div>
+        <div class="average_height"></div>
+        <div class="average_lifespan"></div>
+        <div class="eye_colors"></div>
+        <div class="hair_colors"></div>
+        <div class="skin_colors"></div>
+        <div class="language"></div>
+        <div class="homeworld"></div>
+        <ul class="people"></ul>
+        <ul class="films"></ul>
     </main>
     <footer>
         &copy; 2023 Annie Kwon
     </footer>
     <script src="js/app.js"></script>
+    <script src="js/species.js"></script>
 </body>
 </html>

@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Person</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annie Kwon's Star Wars API</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/person.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
-<body onload="getPerson()">
-  <h1>Person</h1>
-
-  <div class="card">
-    <h1 class="name"></h1>
-    <div class="height"></div>
-    <div class="mass"></div>
-    <div class="hairColor"></div>
-    <div class="skinColor"></div>
-    <div class="eyeColor"></div>
-    <div class="birthYear"></div>
-    <div class="gender"></div>
-    <div class="homeWorld"></div>
-    <ul class="films"></ul>
-    <ul class="species"></ul>
-    <ul class="vehicles"></ul>
-    <ul class="starships"></ul>
-  </div>
-
-  <script src="./js/person.js"></script>
-
-</body>
-</html>
+  <body onload="renderPerson()">
+    <main>
+      <h1>Star Wars Character Profile</h1>
+      <header>
+          <div class="header-left">
+              <a href="index.html"><img src="img/logo.png" width="200" /></a>
+          </div>
+          <div class="header-right">
+              <nav>
+                  <ul>
+                      <li><a href="#people" class="btn" onclick="getSearch(this.text)">People</a></li>
+                      <li><a href="#planets" class="btn" onclick="getSearch(this.text)">Planets</a></li>
+                      <li><a href="#films" class="btn" onclick="getSearch(this.text)">Films</a></li>
+                      <li><a href="#species" class="btn" onclick="getSearch(this.text)">Species</a></li>
+                      <li><a href="#vehicles" class="btn" onclick="getSearch(this.text)">Vehicles</a></li>
+                      <li><a href="#starships" class="btn" onclick="getSearch(this.text)">Starships</a></li>
+                  </ul>
+              </nav>
+          </div>      
+      </header>
+    <h1>Person</h1>
+    <div class="card">
+      <div class="left-card">
+        <img src="img/profile.png" width="200px"/>
+        <h2 class="name"></h2>
+      </div>
+      <div class="right-card">
+        <div class="height"></div>
+        <div class="mass"></div>
+        <div class="hairColor"></div>
+        <div class="skinColor"></div>
+        <div class="eyeColor"></div>
+        <div class="birthYear"></div>
+        <div class="gender"></div>
+        <div class="homeWorld"></div>
+        <ul class="films"></ul>
+        <ul class="species"></ul>
+        <ul class="vehicles"></ul>
+        <ul class="starships"></ul>
+      </div>
+    </div>
+    </main>
+    <script src="js/person.js"></script>
+  </body>
+</html
