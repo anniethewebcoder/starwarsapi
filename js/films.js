@@ -20,6 +20,9 @@ async function renderFilm() {
 
   const data = await getFilm();
 
+  const imgURL = `<img src="img/${data.episode_id}.jpg" width="200">`;
+  document.querySelector('.left-card').innerHTML = imgURL;
+
   // add name
   const title = data.title;
   document.querySelector('.title').innerHTML = title;

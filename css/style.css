@@ -163,7 +163,7 @@ a:hover {
 }
 
 #swSearch {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -203,7 +203,7 @@ a:hover {
   }
 
 #swResult {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;

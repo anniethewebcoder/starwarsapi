@@ -4,13 +4,18 @@ const rootAPI = "https://swapi.dev/api/";
 
 const loader = document.getElementById("loader");
 const intro = document.getElementById("intro");
+const search = document.getElementById("swSearch");
 const result = document.getElementById("swResult");
 
-const zeroResult = "These aren't the droids you're looking for."
+const zeroArray = ["These aren't the results you're looking for.", "I find your lack of results disturbing.", "Laugh it up, fuzzball.", "No results. You will never find a more wretched hive of scum and villainy.", "I suggest a new strategy, Artoo: Let the Wookie search something else.", "Hokey searches and no results are no match for a good blaster at your side, kid.", "Aren't you a little short for a result?", "You like me because I'm a result. There aren't results in your life.", "Do. Or do not. There is no result.", "The ability to seach does not make you intelligent."]
+
+const zeroResult = zeroArray[Math.round(Math.random() * 9)];
+
+console.log(zeroResult)
 //DEFINE getAPI FUNCTION
 async function getAPI(url, category) {
     let html = ""
-
+    console.log(url)
     let res = await fetch(url)
 
     loader.style.visibility = "hidden";
@@ -45,6 +50,9 @@ async function getAPI(url, category) {
 
 //DEFINE getSearch FUNCTION
 function getSearch(category) {
+
+    search.style.display = "flex";
+    result.style.display = "flex";
 
     let swsearch = `<label for="swInput" class="search-label">Search ${category}</label>
         <input type="text" id="swInput">`
@@ -119,7 +127,7 @@ async function getPlanets(data) {
     if(data.count === 0) {
         html = zeroResult;
     } else {
-        html = `<div class="result-count"><h1>Never tell me the odds. You got ${data.count} results.</h1></div>`
+        html = `<div class="result-count"><h1>It's no moon. It's a ${data.count} results.</h1></div>`
     }
 
     if(data.next !== null) {
@@ -157,10 +165,13 @@ async function getPlanets(data) {
 }
 
 async function getHomeworld(url) {
-    const res = await fetch(url)
-    const data = await res.json();
-    console.log(data.name)
-    return data.name
+    try {
+        const res = await fetch(url)
+        const data = await res.json();
+        return data.name
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 async function getFilms(data) {
@@ -255,7 +266,7 @@ async function getStarships(data) {
     if(data.count === 0) {
         html = zeroResult;
     } else {
-        html = `<div class="result-count"><h1>I just did the Kessel Run in ${data.count} results.</h1></div>`
+        html = `<div class="result-count"><h1>It's the ship that made the Kessel Run in ${data.count} results.</h1></div>`
     }
 
     if(data.next !== null) {
@@ -298,7 +309,7 @@ async function getVehicles(data) {
     if(data.count === 0) {
         html = zeroResult;
     } else {
-        html = `<div class="result-count"><h1>Never tell me the odds. You got ${data.count} results.</h1></div>`
+        html = `<div class="result-count"><h1>I used to bullsey womp rats in my T-16 back home; they're not much bigger than ${data.count} results.</h1></div>`
     }
 
     if(data.next !== null) {
