@@ -1,4 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 100%;
+  margin-bottom: 1rem;
+}
 
+.left-card {
+  flex: 2 0 25%;
+}
+
+.right-card {
+  flex: 1 0 75%;
+  padding-left: 2rem;
+}
+
+.right-card div {
+  padding-top: 1rem;
+}
+
+.list-card {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.list-card ul {
+  padding-top: 2rem;
+}
+
+.list-card li {
+  list-style-type: none;
+}
+
+.list-card a {
+  color: #3EBFAC;
+}
 
 .loader {
     border: 16px solid #FEE01E;

@@ -65,7 +65,7 @@ async function getVehicle() {
           let name = await getName(item);
           pilots_li += `<li>${name}</li>`
       }
-      document.querySelector('.pilots').innerHTML = "Pilots: " + pilots;
+      document.querySelector('.pilots').innerHTML = "Pilots: " + pilots_li;
   }
   
   async function getName(url) {
