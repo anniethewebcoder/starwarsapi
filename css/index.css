@@ -21,6 +21,10 @@
   padding-top: 1rem;
 }
 
+.right-card a {
+  color: #3EBFAC;
+}
+
 .list-card {
   display: grid;
   grid-template-columns: auto auto auto;
